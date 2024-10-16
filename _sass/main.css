@@ -1,0 +1,31 @@
+.current {
+    color: green;
+}
+
+body {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+}
+
+table {
+    margin: 0 auto;
+    resize:horizontal;
+    overflow:auto;
+}
+
+#social-media {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+#self-intro {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.game-image {
+    width: 80%;
+    aspect-ratio: 16/9;
+    border-radius: 1vh;
+    object-fit: cover;
+}

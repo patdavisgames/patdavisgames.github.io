@@ -1,0 +1,27 @@
+{% assign games_per_row = 3 %}
+{% assign games_sorted = site.games | reverse %}
+<table width="75%">
+    <colgroup>
+        {% for i in (1..games_per_row) %}
+        {% assign games_float = games_per_row | times: 1.0 %}
+        <col width="{{ 100.0 | divided_by: games_float}}%" />
+        {% endfor %}
+    </colgroup>
+    <tbody><tr>
+        {% assign decrement = games_per_row %}
+        {% for game in games_sorted %}
+        {% if decrement == 0 %}
+            </tr><tr>
+            {% assign decrement = games_per_row %}
+        {% endif %}
+        <td>
+            <img src="/assets/images/games/{{ game.short_name}}/0.jpg" alt="{{ game.name }}" class="game-image"/>
+            <h2>{{ game.name }}</h2>
+            <h3>{{ game.date | date: "%-d-%B-%Y" }}</h3>
+            <h3>{{ game.role }}</h3>
+            <p>{{ game.content | markdownify }}</p>
+        </td>
+        {% assign decrement = decrement | minus: 1 %}
+        {% endfor %}
+    </tr></tbody>
+</table>
